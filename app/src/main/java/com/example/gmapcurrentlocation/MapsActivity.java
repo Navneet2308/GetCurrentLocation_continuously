@@ -56,8 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
 
-
-                    LatLng latLng = new LatLng(23.2599,77.4126);
+                LatLng latLng = new LatLng(23.2599,77.4126);
                     cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 17);
                 mMap.addMarker(new MarkerOptions().position(latLng).title("my Location"));
                     googleMap.animateCamera(cameraUpdate);
