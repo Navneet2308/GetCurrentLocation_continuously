@@ -28,6 +28,13 @@
             android:text="Remove"
             android:id="@+id/removeupdate"></Button>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:text="Goto Map"
+            android:id="@+id/gotomap"></Button>
+
 
     </LinearLayout>
 

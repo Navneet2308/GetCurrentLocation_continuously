@@ -51,7 +51,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    Button requestionlocation,removelocation;
+    Button requestionlocation,removelocation,gotomapbtn;
     MyBackgroundService  mService =null;
     boolean mBound = false;
     protected static final int REQUEST_CHECK_SETTINGS = 0x1;
@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onPermissionsChecked(MultiplePermissionsReport report) {
                 requestionlocation=   findViewById(R.id.updatelocation);
                         removelocation = findViewById(R.id.removeupdate);
+                        gotomapbtn=findViewById(R.id.gotomap);
 
 
                         requestionlocation.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +152,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                                        mService.removeLocationUpdates();
                                    }
                                });
+
+
+                               gotomapbtn.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View v) {
+                                       Intent intent=new Intent(MainActivity.this,MapsActivity.class);
+                                       startActivity(intent);
+                                   }
+                               });
+
+
                                setButtonState(Common.requestLocationUpdates(MainActivity.this));
                                bindService(new Intent(MainActivity.this,
                                        MyBackgroundService.class),
